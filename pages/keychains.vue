@@ -1,9 +1,9 @@
 <template>
-  <div id="pageroot" class="bg-white text-center mx-auto pt-20">
+  <div id="pageroot" class="bg-gray-100 text-center mx-auto pt-24">
     <!-- Full width column -->
     <div class="flex mb-4">
       <h2 class="flex-1 py-2 text-gray-800 text-3xl">
-        Quote Calculator for Lapel Pins
+        Quote Calculator for Keychains
       </h2>
     </div>
 
@@ -27,6 +27,11 @@
 <script>
 import Multiselect from 'vue-multiselect'
 export default {
+  head: {
+    link: [
+      { rel: 'stylesheet', href: 'https://firebasestorage.googleapis.com/v0/b/lpcpricing.appspot.com/o/vue-multiselect.min.css?alt=media&token=3d643c8a-78ba-4d00-ac47-9938f1e679a5' }
+    ]
+  },
   components: {
     Multiselect
   },
