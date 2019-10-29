@@ -120,13 +120,13 @@
         />
         <div class="flex pt-6">
           <div class="w-1/2">
-            <Counter v-if="pinAddons.indexOf(addonOptions[0]) !== -1" label-text="Glitter Color(s)" @increment="handleChange(1, 0)" @decrement="handleChange(0, 0)" />
-            <Counter v-if="pinAddons.indexOf(addonOptions[1]) !== -1" label-text="Gemstone(s)" @increment="handleChange(1, 1)" @decrement="handleChange(0, 1)" />
-            <Counter v-if="pinAddons.indexOf(addonOptions[2]) !== -1" label-text="Cutout(s)" @increment="handleChange(1, 2)" @decrement="handleChange(0, 2)" />
+            <Counter v-if="pinAddons.includes(addonOptions[0])" label-text="Glitter Color(s)" :val="addonOptions[0].qty" @increment="handleChange(1, 0)" @decrement="handleChange(0, 0)" />
+            <Counter v-if="pinAddons.includes(addonOptions[1])" label-text="Gemstone(s)" :val="addonOptions[1].qty" @increment="handleChange(1, 1)" @decrement="handleChange(0, 1)" />
+            <Counter v-if="pinAddons.includes(addonOptions[2])" label-text="Cutout(s)" :val="addonOptions[2].qty" @increment="handleChange(1, 2)" @decrement="handleChange(0, 2)" />
           </div>
           <div class="w-1/2">
-            <Counter v-if="pinAddons.indexOf(addonOptions[3]) !== -1" label-text="Extra Post(s)" @increment="handleChange(1, 3)" @decrement="handleChange(0, 3)" />
-            <Counter v-if="pinAddons.indexOf(addonOptions[4]) !== -1" label-text="Epoxy Dome(s)" @increment="handleChange(1, 4)" @decrement="handleChange(0, 4)" />
+            <Counter v-if="pinAddons.includes(addonOptions[3])" label-text="Extra Post(s)" :val="addonOptions[3].qty" @increment="handleChange(1, 3)" @decrement="handleChange(0, 3)" />
+            <Counter v-if="pinAddons.includes(addonOptions[4])" label-text="Epoxy Dome(s)" :val="addonOptions[4].qty" @increment="handleChange(1, 4)" @decrement="handleChange(0, 4)" />
           </div>
         </div>
       </div>

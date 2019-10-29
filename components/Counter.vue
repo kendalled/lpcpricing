@@ -11,7 +11,7 @@
         disabled
         class="outline-none focus:outline-none text-center w-full bg-white font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
         name="custom-input-number"
-        :value="count"
+        :value="val"
         @change="onChange()"
       >
       <button class="functionbtn bg-white text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer" @click="$emit('increment'), changeVal(1)">
@@ -50,6 +50,10 @@ export default {
     labelText: {
       type: String,
       default: 'Label Goes Here'
+    },
+    val: {
+      type: Number,
+      default: 1
     }
   },
   data () {
