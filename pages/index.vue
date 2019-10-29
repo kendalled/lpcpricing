@@ -233,7 +233,8 @@ export default {
         { name: 'Epoxy Dome(s)', qty: 1, cost: '$0.20' },
         { name: 'Keychain Loop', qty: 1, cost: '$0.50' },
         { name: '3D Mold', qty: 1, cost: '$100.00' },
-        { name: 'Zinc Alloy Mold', qty: 1, cost: '$30.00' }
+        { name: 'Zinc Alloy Mold', qty: 1, cost: '$30.00' },
+        { name: 'Custom Backing', qty: 1, cost: '$30.00' }
       ],
       pinQty: { name: 'Quantity', key: 'onehundred', val: 0 },
       quantityOptions: [
@@ -604,7 +605,7 @@ export default {
       const packaging = parseFloat(this.pinPackaging.cost.replace('$', ''))
       let addons = 0.0
       for (let i = 0; i < this.pinAddons.length; i++) {
-        if (this.pinAddons[i].name !== '3D Mold' && this.pinAddons[i].name !== 'Zinc Alloy Mold') {
+        if (this.pinAddons[i].name !== '3D Mold' && this.pinAddons[i].name !== 'Zinc Alloy Mold' && this.pinAddons[i].name !== 'Custom Backing') {
           addons += (parseFloat(this.pinAddons[i].cost.replace('$', '')) * this.pinAddons[i].qty)
         }
       }
@@ -624,7 +625,7 @@ export default {
         cost += 20.0
       }
       for (let i = 0; i < this.pinAddons.length; i++) {
-        if (this.pinAddons[i].name === '3D Mold' || this.pinAddons[i].name === 'Zinc Alloy Mold') {
+        if (this.pinAddons[i].name === '3D Mold' || this.pinAddons[i].name === 'Zinc Alloy Mold' || this.pinAddons[i].name === 'Custom Backing') {
           cost += parseFloat(this.pinAddons[i].cost.replace('$', ''))
         }
       }
