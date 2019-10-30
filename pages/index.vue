@@ -20,6 +20,7 @@
           :allow-empty="false"
           :show-labels="false"
           :block-keys="['Tab', 'Enter']"
+          @select="onSelect"
         />
         <br>
         <label class="typo__label">Select Sizing:</label>
@@ -188,7 +189,7 @@ export default {
         { name: 'Polished Silver', cost: '$0.00' },
         { name: 'Polished Copper', cost: '$0.00' },
         { name: 'Polished Nickel', cost: '$0.00' },
-        { name: 'Black Metal', cost: '$0.00' },
+        { name: 'Black Metal', cost: '$0.00', $isDisabled: false },
         { name: 'Antiqued Gold', cost: '$0.40' },
         { name: 'Antiqued Silver', cost: '$0.35' },
         { name: 'Antiqued Copper', cost: '$0.30' },
@@ -220,6 +221,7 @@ export default {
       pinPackaging: { name: 'Packaging', cost: '$0.00' },
       packagingOptions: [
         { name: 'Poly Bag', cost: '$0.00' },
+        { name: 'PVC Pouch', cost: '$0.00' },
         { name: 'Velvet Bag', cost: '$0.55' },
         { name: 'Acrylic Case', cost: '$1.00' },
         { name: 'Velvet Case', cost: '$4.00' }
@@ -630,6 +632,9 @@ export default {
         }
       }
       return cost
+    },
+    isHardEnamel () {
+      return this.pinType.key === 'hardEnamel'
     }
   },
   methods: {
@@ -642,6 +647,13 @@ export default {
       }
       if (way === 0 && this.addonOptions[index].qty !== 1) {
         this.addonOptions[index].qty -= 1
+      }
+    },
+    onSelect (option) {
+      if (option.key === 'hardEnamel') {
+        this.platingOptions[4].$isDisabled = true
+      } else {
+        this.platingOptions[4].$isDisabled = false
       }
     }
   }
