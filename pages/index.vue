@@ -194,7 +194,7 @@ export default {
         { name: 'Antiqued Silver', cost: '$0.35' },
         { name: 'Antiqued Copper', cost: '$0.30' },
         { name: 'Dual Plated', cost: '$0.70' },
-        { name: 'Color Coated', cost: '$0.25' }
+        { name: 'Color Coated', cost: '$0.25', $isDisabled: false }
       ],
       pinSizing: { name: 'Size', key: 'threefourths' },
       sizingOptions: [
@@ -651,8 +651,10 @@ export default {
     },
     onSelect (option) {
       if (option.key === 'hardEnamel') {
+        this.platingOptions[9].$isDisabled = true
         this.platingOptions[4].$isDisabled = true
       } else {
+        this.platingOptions[9].$isDisabled = false
         this.platingOptions[4].$isDisabled = false
       }
     }
